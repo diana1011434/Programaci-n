@@ -1,0 +1,32 @@
+//Ejercicio 6: Sistema de Calificaciones
+//Descripción: Crea un programa que almacene las calificaciones de 5 estudiantes en 3 materias y calcule el promedio de cada estudiante.
+import java.util.Scanner;
+
+public class Calificaciones {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] estudiantes = new String[5];
+        double[][] calificaciones = new double[5][3]; // 5 estudiantes, 3 materias
+        double[] promedios = new double[5];
+
+        // Ingreso de datos
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Ingrese el nombre del estudiante " + (i + 1) + ": ");
+            estudiantes[i] = scanner.next();
+            for (int j = 0; j < 3; j++) {
+                System.out.print("Ingrese la calificación de " + estudiantes[i] + " en la materia " + (j + 1) + ": ");
+                calificaciones[i][j] = scanner.nextDouble();
+            }
+        }
+
+        // Cálculo de promedios
+        for (int i = 0; i < 5; i++) {
+            double suma = 0;
+            for (int j = 0; j < 3; j++) {
+                suma += calificaciones[i][j];
+            }
+            promedios[i] = suma / 3;
+            System.out.println("El promedio de " + estudiantes[i] + " es: " + promedios[i]);
+        }
+    }
+}
