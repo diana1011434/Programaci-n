@@ -1,0 +1,22 @@
+Ejercicio 3: //Arreglo Multidimensional
+Descripción: //Crea un programa que represente una matriz 3x3, pida al usuario que ingrese los elementos y luego calcule la suma de los elementos de la matriz.
+import java.util.Scanner;
+
+public class SumaMatriz {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[][] matriz = new int[3][3];
+        int suma = 0;
+
+        System.out.println("Ingrese los elementos de la matriz 3x3:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print("Elemento [" + i + "][" + j + "]: ");
+                matriz[i][j] = scanner.nextInt();
+                suma += matriz[i][j];
+            }
+        }
+
+        System.out.println("La suma de los elementos de la matriz es: " + suma);
+    }
+}
