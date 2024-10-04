@@ -1,0 +1,30 @@
+//Ejercicio 8: Análisis de Temperaturas
+//Descripción: Crea un programa que almacene las temperaturas diarias de una semana y calcule la temperatura promedio, la temperatura máxima y la mínima.
+import java.util.Scanner;
+
+public class AnalisisTemperaturas {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double[] temperaturas = new double[7];
+        double suma = 0;
+        double max = Double.MIN_VALUE;
+        double min = Double.MAX_VALUE;
+
+        // Ingreso de datos
+        for (int i = 0; i < 7; i++) {
+            System.out.print("Ingrese la temperatura del día " + (i + 1) + ": ");
+            temperaturas[i] = scanner.nextDouble();
+            suma += temperaturas[i];
+            if (temperaturas[i] > max) max = temperaturas[i];
+            if (temperaturas[i] < min) min = temperaturas[i];
+        }
+
+        // Cálculo de promedio
+        double promedio = suma / 7;
+
+        System.out.println("Temperatura promedio: " + promedio);
+        System.out.println("Temperatura máxima: " + max);
+        System.out.println("Temperatura mínima: " + min);
+    }
+}
+
