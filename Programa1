@@ -1,0 +1,21 @@
+//Ejercicio 1: Arreglo Unidimensional
+//Descripción: Crea un programa que pida al usuario que ingrese 5 números enteros, los almacene en un arreglo unidimensional y luego imprima la suma de esos números.
+import java.util.Scanner;
+
+public class SumaArreglo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] numeros = new int[5];
+        int suma = 0;
+
+        System.out.println("Ingrese 5 números enteros:");
+        for (int i = 0; i < 5; i++) {
+            numeros[i] = scanner.nextInt();
+            suma += numeros[i];
+        }
+
+        System.out.println("La suma de los números es: " + suma);
+    }
+}
+
+
