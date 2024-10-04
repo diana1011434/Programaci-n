@@ -1,0 +1,39 @@
+//Ejercicio 10: Juego de Adivinanza
+//Descripción: Crea un programa que permita a un usuario jugar a adivinar un número. El programa debe generar un número aleatorio entre 1 y 100 y almacenar los intentos del usuario en un arreglo hasta que adivine el número.
+import java.util.Scanner;
+import java.util.Random;
+
+public class JuegoAdivinanza {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        int numeroAleatorio = random.nextInt(100) + 1;
+        int[] intentos = new int[10];
+        int contador = 0;
+        int intento;
+
+        System.out.println("¡Adivina el número entre 1 y 100!");
+
+        while (contador < 10) {
+            System.out.print("Introduce tu intento: ");
+            intento = scanner.nextInt();
+            intentos[contador] = intento;
+            contador++;
+
+            if (intento < numeroAleatorio) {
+                System.out.println("Demasiado bajo. Intenta de nuevo.");
+            } else if (intento > numeroAleatorio) {
+                System.out.println("Demasiado alto. Intenta de nuevo.");
+            } else {
+                System.out.println("¡Felicidades! Adivinaste el número.");
+                break;
+            }
+        }
+
+        System.out.println("Tus intentos fueron: ");
+        for (int i = 0; i < contador; i++) {
+            System.out.print(intentos[i] + " ");
+        }
+    }
+}
+
