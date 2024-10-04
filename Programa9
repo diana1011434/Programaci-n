@@ -1,0 +1,32 @@
+//Ejercicio 9: Reporte de Ventas
+//Descripción: Crea un programa que almacene las ventas de varios vendedores en una empresa. 
+//Permite al usuario ingresar las ventas de 5 vendedores y luego muestra el vendedor con mayor venta.
+import java.util.Scanner;
+
+public class ReporteVentas {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] vendedores = new String[5];
+        double[] ventas = new double[5];
+        double maxVenta = 0;
+        String mejorVendedor = "";
+
+        // Ingreso de datos
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Ingrese el nombre del vendedor " + (i + 1) + ": ");
+            vendedores[i] = scanner.next();
+            System.out.print("Ingrese las ventas de " + vendedores[i] + ": ");
+            ventas[i] = scanner.nextDouble();
+        }
+
+        // Encontrar el vendedor con mayor venta
+        for (int i = 0; i < 5; i++) {
+            if (ventas[i] > maxVenta) {
+                maxVenta = ventas[i];
+                mejorVendedor = vendedores[i];
+            }
+        }
+
+        System.out.println("El vendedor con mayor venta es: " + mejorVendedor + " con ventas de: " + maxVenta);
+    }
+}
