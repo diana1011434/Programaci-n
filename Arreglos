@@ -1,0 +1,48 @@
+Los arreglos (o arrays) en Java son estructuras de datos que permiten almacenar múltiples elementos del mismo tipo en una sola variable. Son útiles para organizar y manejar colecciones de datos de manera eficiente.
+
+Tipos de Arreglos en Java
+Arreglos Unidimensionales: Son como una lista lineal de elementos. Se accede a los elementos usando un solo índice.
+
+Ejemplo: int[] numeros = new int[5];
+Arreglos Multidimensionales: Son arreglos de arreglos, utilizados para representar tablas o matrices. El más común es el arreglo bidimensional.
+
+Ejemplo: int[][] matriz = new int[3][3];
+Arreglos de Objetos: Pueden almacenar objetos en lugar de tipos primitivos.
+
+Ejemplo: String[] nombres = new String[5];
+
+Creación de Arreglos
+
+1 Declaración y Creación:
+// Arreglo unidimensional de enteros
+int[] numeros = new int[5];
+
+// Arreglo bidimensional de enteros
+int[][] matriz = new int[3][3];
+
+// Arreglo de objetos
+String[] nombres = new String[5];
+
+2 Inicialización: Se puede inicializar al momento de la creación o posteriormente.
+
+// Inicialización directa
+int[] numeros = {1, 2, 3, 4, 5};
+
+// Inicialización después de la creación
+int[] numeros = new int[5];
+numeros[0] = 10;
+numeros[1] = 20;
+
+3 Modificación de Arreglos
+Para modificar un elemento, se accede a él usando su índice y se le asigna un nuevo valor
+numeros[0] = 100; // Cambia el primer elemento a 100
+
+4 Acceso a Elementos
+Los elementos de un arreglo se acceden mediante su índice, comenzando desde 0.
+
+int primero = numeros[0]; // Accede al primer elemento
+int segundo = numeros[1]; // Accede al segundo elemento
+
+
+
+
