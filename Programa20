@@ -1,0 +1,25 @@
+//Análisis de Datos de Ventas
+//Descripción: Determinar la fila de ventas con la mayor suma.
+public class MayorSumaVentas {
+    public static void main(String[] args) {
+        double[][] ventas = {
+            {1000.0, 1500.0, 2000.0},
+            {1200.0, 1800.0, 2300.0},
+            {1100.0, 1600.0, 2200.0}
+        };
+        int filaConMayorSuma = -1;
+        double sumaMayor = Double.MIN_VALUE;
+
+        for (int i = 0; i < ventas.length; i++) {
+            double sumaFila = 0;
+            for (double venta : ventas[i]) {
+                sumaFila += venta;
+            }
+            if (sumaFila > sumaMayor) {
+                sumaMayor = sumaFila;
+                filaConMayorSuma = i;
+            }
+        }
+        System.out.println("La fila con mayor suma de ventas es: " + filaConMayorSuma + " con una suma de $" + sumaMayor);
+    }
+}
