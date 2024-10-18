@@ -1,0 +1,11 @@
+//Clasificación de Notas de Estudiantes
+//Descripción: Ordenar las notas de estudiantes en un examen.
+import java.util.Arrays;
+
+public class OrdenarNotas {
+    public static void main(String[] args) {
+        double[] notas = {88.5, 92.0, 79.5, 85.0, 90.5};
+        Arrays.sort(notas);
+        System.out.println("Notas ordenadas: " + Arrays.toString(notas));
+    }
+}
