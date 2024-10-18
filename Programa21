@@ -1,0 +1,120 @@
+//Caso de Uso: Sistema de Inventario de Biblioteca
+//Descripción: El sistema permite gestionar un inventario de libros en una biblioteca.
+//Cada libro tiene un título, un autor y un año de publicación. Los usuarios pueden agregar nuevos libros, modificar
+//detalles de libros existentes y eliminar libros del inventario.
+import java.util.Scanner;
+
+public class Biblioteca {
+    private static String[][] inventario = new String[100][3]; // Arreglo para almacenar libros (máximo 100)
+    private static int contadorLibros = 0;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int opcion;
+
+        do {
+            System.out.println("Menú de Biblioteca");
+            System.out.println("1. Agregar libro");
+            System.out.println("2. Modificar libro");
+            System.out.println("3. Eliminar libro");
+            System.out.println("4. Mostrar inventario");
+            System.out.println("5. Salir");
+            System.out.print("Elija una opción: ");
+            opcion = scanner.nextInt();
+            scanner.nextLine(); // Limpiar el buffer
+
+            switch (opcion) {
+                case 1:
+                    agregarLibro(scanner);
+                    break;
+                case 2:
+                    modificarLibro(scanner);
+                    break;
+                case 3:
+                    eliminarLibro(scanner);
+                    break;
+                case 4:
+                    mostrarInventario();
+                    break;
+                case 5:
+                    System.out.println("Saliendo...");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intente de nuevo.");
+            }
+        } while (opcion != 5);
+
+        scanner.close();
+    }
+
+    private static void agregarLibro(Scanner scanner) {
+        if (contadorLibros < inventario.length) {
+            System.out.print("Ingrese el título del libro: ");
+            String titulo = scanner.nextLine();
+            System.out.print("Ingrese el autor del libro: ");
+            String autor = scanner.nextLine();
+            System.out.print("Ingrese el año de publicación: ");
+            String anio = scanner.nextLine();
+
+            inventario[contadorLibros][0] = titulo;
+            inventario[contadorLibros][1] = autor;
+            inventario[contadorLibros][2] = anio;
+            contadorLibros++;
+
+            System.out.println("Libro agregado con éxito.");
+        } else {
+            System.out.println("El inventario está lleno. No se pueden agregar más libros.");
+        }
+    }
+
+    private static void modificarLibro(Scanner scanner) {
+        System.out.print("Ingrese el índice del libro a modificar (0 a " + (contadorLibros - 1) + "): ");
+        int indice = scanner.nextInt();
+        scanner.nextLine(); // Limpiar el buffer
+
+        if (indice >= 0 && indice < contadorLibros) {
+            System.out.print("Ingrese el nuevo título del libro: ");
+            inventario[indice][0] = scanner.nextLine();
+            System.out.print("Ingrese el nuevo autor del libro: ");
+            inventario[indice][1] = scanner.nextLine();
+            System.out.print("Ingrese el nuevo año de publicación: ");
+            inventario[indice][2] = scanner.nextLine();
+
+            System.out.println("Libro modificado con éxito.");
+        } else {
+            System.out.println("Índice no válido.");
+        }
+    }
+
+    private static void eliminarLibro(Scanner scanner) {
+        System.out.print("Ingrese el índice del libro a eliminar (0 a " + (contadorLibros - 1) + "): ");
+        int indice = scanner.nextInt();
+        scanner.nextLine(); // Limpiar el buffer
+
+        if (indice >= 0 && indice < contadorLibros) {
+            // Desplazar libros a la izquierda
+            for (int i = indice; i < contadorLibros - 1; i++) {
+                inventario[i] = inventario[i + 1];
+            }
+            inventario[contadorLibros - 1] = null; // Limpiar la última posición
+            contadorLibros--;
+
+            System.out.println("Libro eliminado con éxito.");
+        } else {
+            System.out.println("Índice no válido.");
+        }
+    }
+
+    private static void mostrarInventario() {
+        if (contadorLibros == 0) {
+            System.out.println("No hay libros en el inventario.");
+            return;
+        }
+
+        System.out.println("Inventario de libros:");
+        for (int i = 0; i < contadorLibros; i++) {
+            System.out.println("Índice: " + i + ", Título: " + inventario[i][0] +
+                    ", Autor: " + inventario[i][1] + ", Año: " + inventario[i][2]);
+        }
+    }
+}
