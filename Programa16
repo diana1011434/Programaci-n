@@ -1,0 +1,16 @@
+//Contar Ocurrencias de Productos Vendidos
+//Descripción: Contar cuántas veces se vendió un producto específico en un mes.
+public class ContarVentas {
+    public static void main(String[] args) {
+        String[] ventas = {"Laptop", "Teléfono", "Tablet", "Laptop", "Teclado", "Teléfono"};
+        String productoBuscar = "Laptop";
+        int contador = 0;
+
+        for (String venta : ventas) {
+            if (venta.equals(productoBuscar)) {
+                contador++;
+            }
+        }
+        System.out.println("El producto " + productoBuscar + " fue vendido " + contador + " veces.");
+    }
+}
