@@ -1,0 +1,17 @@
+//Búsqueda de Producto en Inventario
+//Descripción: Buscar un producto específico en un inventario y devolver su índice.
+public class BuscarProducto {
+    public static void main(String[] args) {
+        String[] inventario = {"Laptop", "Teléfono", "Tablet", "Monitor", "Teclado"};
+        String productoBuscar = "Tablet";
+        int indice = -1;
+
+        for (int i = 0; i < inventario.length; i++) {
+            if (inventario[i].equals(productoBuscar)) {
+                indice = i;
+                break;
+            }
+        }
+        System.out.println("Índice de " + productoBuscar + ": " + (indice != -1 ? indice : "No encontrado"));
+    }
+}
