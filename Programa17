@@ -1,0 +1,22 @@
+//Cálculo del Promedio de Calificaciones
+//Descripción: Calcular el promedio de calificaciones de una clase.
+public class PromedioCalificaciones {
+    public static void main(String[] args) {
+        double[][] calificaciones = {
+            {90, 85, 88},
+            {76, 82, 91},
+            {85, 87, 89}
+        };
+        double suma = 0;
+        int totalCalificaciones = 0;
+
+        for (double[] estudiante : calificaciones) {
+            for (double calificacion : estudiante) {
+                suma += calificacion;
+                totalCalificaciones++;
+            }
+        }
+        double promedio = suma / totalCalificaciones;
+        System.out.println("El promedio de calificaciones es: " + promedio);
+    }
+}
