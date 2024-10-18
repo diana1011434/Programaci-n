@@ -1,0 +1,27 @@
+//Transposición de Datos de Clientes
+//Descripción: Transponer una matriz que representa los datos de clientes (nombre, edad, ingresos).
+import java.util.Arrays;
+
+public class TransponerDatosClientes {
+    public static void main(String[] args) {
+        String[][] clientes = {
+            {"Juan", "25", "30000"},
+            {"Ana", "30", "45000"},
+            {"Luis", "22", "25000"}
+        };
+        int filas = clientes.length;
+        int columnas = clientes[0].length;
+        String[][] transpuesta = new String[columnas][filas];
+
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                transpuesta[j][i] = clientes[i][j];
+            }
+        }
+
+        System.out.println("Datos transpuestos:");
+        for (String[] fila : transpuesta) {
+            System.out.println(Arrays.toString(fila));
+        }
+    }
+}
