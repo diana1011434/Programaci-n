@@ -1,0 +1,13 @@
+//Suma de Ventas Diarias
+//Descripción: Calcular la suma total de las ventas de una tienda durante una semana.
+public class SumaVentas {
+    public static void main(String[] args) {
+        double[] ventas = {200.50, 300.75, 150.25, 400.00, 500.60, 350.30, 600.80};
+        double sumaTotal = 0;
+
+        for (double venta : ventas) {
+            sumaTotal += venta;
+        }
+        System.out.println("La suma total de ventas es: $" + sumaTotal);
+    }
+}
