@@ -1,0 +1,26 @@
+//Rotación de Inventario
+//Descripción: Rotar una matriz de inventario de productos.
+public class RotarInventario {
+    public static void main(String[] args) {
+        String[][] inventario = {
+            {"Producto A", "Producto B", "Producto C"},
+            {"Producto D", "Producto E", "Producto F"},
+            {"Producto G", "Producto H", "Producto I"}
+        };
+        int n = inventario.length;
+
+        // Rotar la matriz 90 grados
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                String temp = inventario[i][j];
+                inventario[i][j] = inventario[j][i];
+                inventario[j][i] = temp;
+            }
+        }
+
+        System.out.println("Inventario rotado:");
+        for (String[] fila : inventario) {
+            System.out.println(Arrays.toString(fila));
+        }
+    }
+}
