@@ -1,0 +1,16 @@
+//Generación de una Matriz de Precios
+//Descripción: Crear una matriz de precios para diferentes productos en diferentes tiendas.
+public class MatrizPrecios {
+    public static void main(String[] args) {
+        double[][] precios = {
+            {10.99, 12.99, 11.50}, // Precios en tienda 1
+            {9.99, 14.99, 10.50},  // Precios en tienda 2
+            {11.99, 13.99, 12.50}  // Precios en tienda 3
+        };
+
+        System.out.println("Matriz de precios:");
+        for (double[] fila : precios) {
+            System.out.println(Arrays.toString(fila));
+        }
+    }
+}
