@@ -1,0 +1,11 @@
+//Eliminar espacios en blanco
+//Elimina todos los espacios en blanco de una cadena.
+public class Ejercicio10 {
+    public static String eliminarEspacios(String cadena) {
+        return cadena.replaceAll("\\s+", "");
+    }
+
+    public static void main(String[] args) {
+        System.out.println(eliminarEspacios("Eliminar   espacios    en blanco"));
+    }
+}
