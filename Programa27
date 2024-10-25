@@ -1,0 +1,19 @@
+Contar la frecuencia de cada carácter
+Escribe un programa que cuente la frecuencia de cada carácter en una cadena.
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Ejercicio7 {
+    public static Map<Character, Integer> contarFrecuenciaCaracteres(String cadena) {
+        Map<Character, Integer> frecuencia = new HashMap<>();
+        for (char c : cadena.toCharArray()) {
+            frecuencia.put(c, frecuencia.getOrDefault(c, 0) + 1);
+        }
+        return frecuencia;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(contarFrecuenciaCaracteres("frecuencia de caracteres"));
+    }
+}
