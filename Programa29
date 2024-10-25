@@ -1,0 +1,11 @@
+//Comparar dos cadenas ignorando mayúsculas y minúsculas
+//Escribe un programa que compare dos cadenas sin considerar las mayúsculas y minúsculas.
+public class Ejercicio9 {
+    public static boolean compararIgnorandoCaso(String cadena1, String cadena2) {
+        return cadena1.equalsIgnoreCase(cadena2);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(compararIgnorandoCaso("Java", "java"));
+    }
+}
