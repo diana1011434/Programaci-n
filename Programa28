@@ -1,0 +1,17 @@
+//Concatenar una lista de cadenas
+//Concatenar una lista de cadenas en una sola cadena separada por un delimitador.
+import java.util.List;
+import java.util.StringJoiner;
+
+public class Ejercicio8 {
+    public static String concatenarCadenas(List<String> cadenas, String delimitador) {
+        StringJoiner joiner = new StringJoiner(delimitador);
+        for (String cadena : cadenas) joiner.add(cadena);
+        return joiner.toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(concatenarCadenas(List.of("Java", "es", "genial"), " "));
+    }
+}
+
