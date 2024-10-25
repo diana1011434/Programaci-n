@@ -1,0 +1,16 @@
+Encontrar la longitud de la palabra más larga
+Encuentra la longitud de la palabra más larga en una cadena de texto.
+public class Ejercicio6 {
+    public static int longitudPalabraMasLarga(String cadena) {
+        String[] palabras = cadena.split("\\s+");
+        int max = 0;
+        for (String palabra : palabras) {
+            if (palabra.length() > max) max = palabra.length();
+        }
+        return max;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(longitudPalabraMasLarga("Encontrando la palabra más larga"));
+    }
+}
