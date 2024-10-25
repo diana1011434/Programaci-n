@@ -1,0 +1,13 @@
+//Comprobar si una cadena es un palíndromo
+//Escribe un programa que determina si una cadena es un palíndromo.
+public class Ejercicio4 {
+    public static boolean esPalindromo(String cadena) {
+        String limpio = cadena.replaceAll("[^a-zA-Z]", "").toLowerCase();
+        String invertido = new StringBuilder(limpio).reverse().toString();
+        return limpio.equals(invertido);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(esPalindromo("A man a plan a canal Panama"));
+    }
+}
