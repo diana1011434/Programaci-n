@@ -1,0 +1,12 @@
+//Reemplazar caracteres en una cadena
+//Reemplace todas las ocurrencias de un carácter específico en una cadena por otro.
+public class Ejercicio5 {
+    public static String reemplazarCaracter(String cadena, char viejo, char nuevo) {
+        return cadena.replace(viejo, nuevo);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(reemplazarCaracter("banana", 'a', 'o'));
+    }
+}
+
