@@ -1,0 +1,5 @@
+public static int mayorPotenciaDeDos(int n) {
+    if (n < 2) return 1;
+    int mitad = mayorPotenciaDeDos(n / 2);
+    return mitad * 2;
+}
