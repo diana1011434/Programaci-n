@@ -1,0 +1,9 @@
+public static void hanoi(int n, char desde, char hasta, char auxiliar) {
+    if (n == 1) {
+        System.out.println("Mover disco 1 desde " + desde + " hasta " + hasta);
+        return;
+    }
+    hanoi(n - 1, desde, auxiliar, hasta);
+    System.out.println("Mover disco " + n + " desde " + desde + " hasta " + hasta);
+    hanoi(n - 1, auxiliar, hasta, desde);
+}
