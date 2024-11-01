@@ -1,0 +1,4 @@
+public static int sumaArreglo(int[] arr, int index) {
+    if (index == arr.length) return 0;
+    return arr[index] + sumaArreglo(arr, index + 1);
+}
