@@ -1,0 +1,5 @@
+public static int potencia(int a, int b) {
+    if (b == 0) return 1;
+    if (b % 2 == 0) return potencia(a * a, b / 2);
+    return a * potencia(a, b - 1);
+}
