@@ -1,0 +1,7 @@
+public static int busquedaBinaria(int[] arr, int n, int izq, int der) {
+    if (izq > der) return -1;
+    int mid = izq + (der - izq) / 2;
+    if (arr[mid] == n) return mid;
+    if (arr[mid] > n) return busquedaBinaria(arr, n, izq, mid - 1);
+    return busquedaBinaria(arr, n, mid + 1, der);
+}
