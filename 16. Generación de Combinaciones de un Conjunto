@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Combinaciones {
+    
+    // Función principal para generar combinaciones
+    public static List<List<String>> generarCombinaciones(List<String> conjunto) {
+        List<List<String>> resultado = new ArrayList<>();
+        generarCombinacionesRecursivo(conjunto, 0, new ArrayList<>(), resultado);
+        return resultado;
+    }
+    
+    // Función recursiva para generar combinaciones
+    private static void generarCombinacionesRecursivo(List<String> conjunto, int index, List<String> combinacionActual, List<List<String>> resultado) {
+        // Caso base: si hemos alcanzado el final del conjunto
+        if (index == conjunto.size()) {
+            resultado.add(new ArrayList<>(combinacionActual)); // Añadir la combinación actual al resultado
+            return;
+        }
+        
+        // Caso recursivo 1: no incluir el elemento actual
+        generarCombinacionesRecursivo(conjunto, index + 1, combinacionActual, resultado);
+        
+        // Caso recursivo 2: incluir el elemento actual
+        combinacionActual.add(conjunto.get(index));
+        generarCombinacionesRecursivo(conjunto, index + 1, combinacionActual, resultado);
+        
+        // Retroceso: quitar el elemento añadido (deshacer la última decisión)
+        combinacionActual.remove(combinacionActual.size() - 1);
+    }
+    
+    public static void main(String[] args) {
+        List<String> conjunto = new ArrayList<>();
+        conjunto.add("a");
+        conjunto.add("b");
+        conjunto.add("c");
+        
+        List<List<String>> combinaciones = generarCombinaciones(conjunto);
+        
+        // Imprimir todas las combinaciones
+        System.out.println("Combinaciones:");
+        for (List<String> combinacion : combinaciones) {
+            System.out.println(combinacion);
+        }
+    }
+}
