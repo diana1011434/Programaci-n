@@ -1,0 +1,17 @@
+Desafío 10: Equipo 10 → Sumar los Elementos de una Lista con Recursión
+Pregunta: ¿Cómo sumar los elementos de una lista de números utilizando recursión?
+Caso de Uso: Una aplicación que analiza datos necesita sumar los elementos de una lista de números de manera recursiva.
+Código en Java:
+public class SumList {
+    public static int sum(int[] arr, int index) {
+        if (index == arr.length) {
+            return 0;
+        }
+        return arr[index] + sum(arr, index + 1);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        System.out.println(sum(arr, 0));  // Output: 15
+    }
+}
