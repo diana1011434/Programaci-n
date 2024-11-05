@@ -1,0 +1,23 @@
+Desafío 5: Equipo 5 → Contar Ocurrencias de un Carácter
+Pregunta: ¿Cómo contar las ocurrencias de un carácter en una cadena utilizando recursión?
+Caso de Uso: Un programa de análisis de texto debe contar cuántas veces aparece un carácter específico en una cadena dada.
+Código en Java:
+public class CountOccurrences {
+    public static int countOccurrences(String str, char ch) {
+        return countOccurrencesHelper(str, ch, 0);
+    }
+
+    private static int countOccurrencesHelper(String str, char ch, int index) {
+        if (index == str.length()) {
+            return 0;
+        }
+        int count = (str.charAt(index) == ch) ? 1 : 0;
+        return count + countOccurrencesHelper(str, ch, index + 1);
+    }
+
+    public static void main(String[] args) {
+        String input = "hello";
+        char character = 'l';
+        System.out.println(countOccurrences(input, character));  // Output: 2
+    }
+}
