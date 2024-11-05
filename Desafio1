@@ -1,0 +1,18 @@
+Desafío 1: Equipo 1 → Reversión de una Cadena
+Pregunta: ¿Cómo invertir una cadena de caracteres utilizando recursión?
+Caso de Uso: Una empresa necesita invertir los mensajes de texto de los usuarios de forma recursiva, para mostrar mensajes en orden inverso para efectos de personalización de la experiencia.
+Código en Java:
+
+public class ReverseString {
+    public static String reverse(String str) {
+        if (str.isEmpty()) {
+            return str;
+        }
+        return reverse(str.substring(1)) + str.charAt(0);
+    }
+
+    public static void main(String[] args) {
+        String input = "hola";
+        System.out.println(reverse(input));  // Output: aloh
+    }
+}
