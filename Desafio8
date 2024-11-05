@@ -1,0 +1,17 @@
+Desafío 8: Equipo 8 → Factorial de un Número con Recursión
+Pregunta: ¿Cómo calcular el factorial de un número utilizando recursión?
+Caso de Uso: En un sistema de cálculo matemático, el cálculo del factorial de un número se realiza mediante recursión.
+Código en Java:
+public class Factorial {
+    public static int factorial(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return n * factorial(n - 1);
+    }
+
+    public static void main(String[] args) {
+        int number = 5;
+        System.out.println(factorial(number));  // Output: 120
+    }
+}
