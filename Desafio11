@@ -1,0 +1,18 @@
+Desafío 11: Equipo 11 → Transformación de una Cadena a Mayúsculas
+Pregunta: ¿Cómo convertir una cadena a mayúsculas utilizando recursión?
+Caso de Uso: Un programa de procesamiento de texto convierte el texto ingresado a mayúsculas utilizando recursión.
+Código en Java:
+public class ToUpperCase {
+    public static String toUpperCase(String str) {
+        if (str.isEmpty()) {
+            return str;
+        }
+        char firstChar = Character.toUpperCase(str.charAt(0));
+        return firstChar + toUpperCase(str.substring(1));
+    }
+
+    public static void main(String[] args) {
+        String input = "hello";
+        System.out.println(toUpperCase(input));  // Output: HELLO
+    }
+}
