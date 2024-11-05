@@ -1,0 +1,17 @@
+Desafío 7: Equipo 7 → Longitud de la Cadena Recursiva
+Pregunta: ¿Cómo obtener la longitud de una cadena utilizando recursión?
+Caso de Uso: Una función recursiva para determinar la longitud de una cadena, por ejemplo, en un sistema de procesamiento de texto sin usar métodos predefinidos.
+Código en Java:
+public class StringLength {
+    public static int length(String str) {
+        if (str.isEmpty()) {
+            return 0;
+        }
+        return 1 + length(str.substring(1));
+    }
+
+    public static void main(String[] args) {
+        String input = "hello";
+        System.out.println(length(input));  // Output: 5
+    }
+}
