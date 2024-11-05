@@ -1,0 +1,22 @@
+Desafío 12: Equipo 12 → Generación de una Secuencia de Cadenas
+Pregunta: ¿Cómo generar una secuencia de cadenas a partir de una cadena dada?
+Caso de Uso: Un sistema genera todas las combinaciones posibles de una palabra para análisis de contraseñas.
+Código en Java:
+public class StringSequence {
+    public static void generateSequence(String str) {
+        generateSequenceHelper(str, 0);
+    }
+
+    private static void generateSequenceHelper(String str, int index) {
+        if (index == str.length()) {
+            return;
+        }
+        System.out.println(str.substring(0, index + 1));
+        generateSequenceHelper(str, index + 1);
+    }
+
+    public static void main(String[] args) {
+        String input = "abc";
+        generateSequence(input);
+    }
+}
