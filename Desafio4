@@ -1,0 +1,24 @@
+Desafío 4: Equipo 4 → Encontrar la Subcadena Más Larga
+Pregunta: ¿Cómo encontrar la subcadena más larga que se repite en una cadena?
+Caso de Uso: En un programa de análisis de texto, se necesita encontrar la subcadena más repetida en una entrada dada.
+public class LongestSubstring {
+    public static String longestSubstring(String str) {
+        return longestSubstringHelper(str, "", "", 0);
+    }
+
+    private static String longestSubstringHelper(String str, String current, String longest, int index) {
+        if (index == str.length()) {
+            return longest;
+        }
+        String sub = str.substring(index);
+        if (sub.contains(current)) {
+            longest = (current.length() > longest.length()) ? current : longest;
+        }
+        return longestSubstringHelper(str, sub, longest, index + 1);
+    }
+
+    public static void main(String[] args) {
+        String input = "ababab";
+        System.out.println(longestSubstring(input));  // Output: ab
+    }
+}
