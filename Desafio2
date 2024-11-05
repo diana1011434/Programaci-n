@@ -1,0 +1,25 @@
+Desafío 2: Equipo 2 → Palíndromos
+Pregunta: ¿Cómo verificar si una cadena es un palíndromo usando recursión?
+Caso de Uso: Una aplicación de texto necesita verificar si una palabra o frase es un palíndromo sin importar mayúsculas, minúsculas y espacios.
+Código en Java
+public class Palindrome {
+    public static boolean isPalindrome(String str) {
+        str = str.replaceAll("[^a-zA-Z]", "").toLowerCase();
+        return isPalindromeHelper(str, 0, str.length() - 1);
+    }
+
+    private static boolean isPalindromeHelper(String str, int left, int right) {
+        if (left >= right) {
+            return true;
+        }
+        if (str.charAt(left) != str.charAt(right)) {
+            return false;
+        }
+        return isPalindromeHelper(str, left + 1, right - 1);
+    }
+
+    public static void main(String[] args) {
+        String word = "A man a plan a canal Panama";
+        System.out.println(isPalindrome(word));  // Output: true
+    }
+}
