@@ -1,0 +1,23 @@
+Desafío 6: Equipo 6 → Contar el Número de Vocales
+Pregunta: ¿Cómo contar el número de vocales en una cadena?
+Caso de Uso: Un sistema de procesamiento de textos necesita contar cuántas vocales se encuentran en una cadena para análisis lingüísticos.
+Código en Java:
+public class VowelCount {
+    public static int countVowels(String str) {
+        return countVowelsHelper(str, 0);
+    }
+
+    private static int countVowelsHelper(String str, int index) {
+        if (index == str.length()) {
+            return 0;
+        }
+        char ch = str.charAt(index);
+        int count = "aeiouAEIOU".indexOf(ch) != -1 ? 1 : 0;
+        return count + countVowelsHelper(str, index + 1);
+    }
+
+    public static void main(String[] args) {
+        String input = "hello world";
+        System.out.println(countVowels(input));  // Output: 3
+    }
+}
