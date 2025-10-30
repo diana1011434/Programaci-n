@@ -1,0 +1,134 @@
+package Funciones;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+// Programa educativo en Java con interfaz gráfica (Swing)
+// Tema: Diferencia entre función y método
+// Autor: Ing Diana Arias
+// Explicación: Una FUNCIÓN devuelve un valor, mientras que un MÉTODO realiza una acción sin devolver.
+// Este programa muestra ambas cosas visualmente en una interfaz.
+
+public class FuncionesYMetodosJava extends JFrame {
+
+   	private static final long serialVersionUID = 1L;
+	private JTextField txtNum1, txtNum2;
+    private JTextArea txtResultado;
+    private JButton btnSumar, btnSaludar, btnMultiplicar;
+    private Calculadora calculadora = new Calculadora();
+
+    public FuncionesYMetodosJava() {
+        super("Funciones y Métodos en Java - Ejemplo Visual");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(600, 400);
+        setLocationRelativeTo(null);
+
+        // Panel principal
+        JPanel panel = new JPanel(new BorderLayout());
+        add(panel);
+
+        // Panel superior: entrada de datos
+        JPanel pnlEntrada = new JPanel(new GridLayout(2, 2, 10, 10));
+        pnlEntrada.setBorder(BorderFactory.createTitledBorder("Entradas"));
+
+        pnlEntrada.add(new JLabel("Número 1:"));
+        txtNum1 = new JTextField();
+        pnlEntrada.add(txtNum1);
+
+        pnlEntrada.add(new JLabel("Número 2:"));
+        txtNum2 = new JTextField();
+        pnlEntrada.add(txtNum2);
+
+        // Panel central: botones
+        JPanel pnlBotones = new JPanel(new GridLayout(1, 3, 10, 10));
+        pnlBotones.setBorder(BorderFactory.createTitledBorder("Acciones"));
+
+        btnSumar = new JButton("Función: Sumar");
+        btnSaludar = new JButton("Método: Saludar");
+        btnMultiplicar = new JButton("Función: Multiplicar");
+
+        pnlBotones.add(btnSumar);
+        pnlBotones.add(btnSaludar);
+        pnlBotones.add(btnMultiplicar);
+
+        // Panel inferior: resultados
+        txtResultado = new JTextArea(6, 40);
+        txtResultado.setEditable(false);
+        txtResultado.setBorder(BorderFactory.createTitledBorder("Resultado / Salida"));
+
+        panel.add(pnlEntrada, BorderLayout.NORTH);
+        panel.add(pnlBotones, BorderLayout.CENTER);
+        panel.add(new JScrollPane(txtResultado), BorderLayout.SOUTH);
+
+        // Eventos de botones
+        btnSumar.addActionListener(e -> ejecutarFuncionSumar());
+        btnSaludar.addActionListener(e -> ejecutarMetodoSaludar());
+        btnMultiplicar.addActionListener(e -> ejecutarFuncionMultiplicar());
+    }
+
+    // ============================================
+    // FUNCIÓN: devuelve un valor
+    // ============================================
+    private int sumar(int a, int b) {
+        return a + b;
+    }
+
+    // ============================================
+    // MÉTODO: no devuelve valor (realiza acción)
+    // ============================================
+    private void saludar(String nombre) {
+        txtResultado.append("Hola, " + nombre + "! Bienvenida a la clase de Java.\n");
+    }
+
+    private void ejecutarFuncionSumar() {
+        try {
+            int num1 = Integer.parseInt(txtNum1.getText());
+            int num2 = Integer.parseInt(txtNum2.getText());
+            int resultado = sumar(num1, num2);
+            txtResultado.append("Función SUMAR: El resultado de (" + num1 + " + " + num2 + ") es " + resultado + "\n");
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Por favor ingresa números válidos.");
+        }
+    }
+
+    private void ejecutarMetodoSaludar() {
+        String nombre = JOptionPane.showInputDialog(this, "Ingresa tu nombre:");
+        if (nombre != null && !nombre.trim().isEmpty()) {
+            saludar(nombre);
+        }
+    }
+
+    private void ejecutarFuncionMultiplicar() {
+        try {
+            int num1 = Integer.parseInt(txtNum1.getText());
+            int num2 = Integer.parseInt(txtNum2.getText());
+            int producto = calculadora.multiplicar(num1, num2);
+            calculadora.mostrarResultado(producto, txtResultado);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Por favor ingresa números válidos.");
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            FuncionesYMetodosJava frame = new FuncionesYMetodosJava();
+            frame.setVisible(true);
+        });
+    }
+}
+
+// ===========================================================
+// CLASE ADICIONAL: demuestra funciones y métodos dentro de un objeto.
+// ===========================================================
+class Calculadora {
+
+    // Función (devuelve un valor)
+    public int multiplicar(int x, int y) {
+        return x * y;
+    }
+
+    // Método (no devuelve valor, pero realiza una acción)
+    public void mostrarResultado(int valor, JTextArea areaTexto) {
+        areaTexto.append("Método MOSTRARRESULTADO: El producto es " + valor + "\n");
+    }
+}
