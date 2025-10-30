@@ -1,0 +1,167 @@
+package FuncionMetodo;
+
+//---------------------------------------------
+//IMPORTACIÓN DE LIBRERÍAS
+//---------------------------------------------
+import javax.swing.*;      // Para la interfaz gráfica (ventanas, botones, etiquetas, etc.)
+import java.awt.*;         // Para manejar colores, fuentes y diseño visual
+import java.awt.event.*;   // Para capturar eventos (clics de botones)
+
+//---------------------------------------------
+// CLASE PRINCIPAL
+//---------------------------------------------
+public class FuncionesYMetodosVisualExplicado extends JFrame implements ActionListener {
+
+ // ---------------------------------------------
+ //  DECLARACIÓN DE COMPONENTES
+ // ---------------------------------------------
+ private JTextField txtNumero;
+ private JLabel lblResultado;
+ private JButton btnFuncion, btnMetodo, btnLimpiar;
+ private JTextArea txtExplicacion; // Área para mostrar la explicación
+
+ // ---------------------------------------------
+ // CONSTRUCTOR
+ // ---------------------------------------------
+ public FuncionesYMetodosVisualExplicado() {
+     setTitle("Funciones y Métodos en Java - Explicado");
+     setSize(850, 500);
+     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+     setLocationRelativeTo(null);
+     setLayout(new BorderLayout());
+     getContentPane().setBackground(new Color(240, 248, 255)); // Azul claro
+
+     // ---------------------------------------------
+     //  PANEL SUPERIOR (TÍTULO)
+     // ---------------------------------------------
+     JLabel lblTitulo = new JLabel("💡 Diferencia entre Función y Método en Java", JLabel.CENTER);
+     lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 20));
+     lblTitulo.setForeground(new Color(25, 25, 112)); // Azul oscuro
+     add(lblTitulo, BorderLayout.NORTH);
+
+     // ---------------------------------------------
+     //  PANEL IZQUIERDO (INTERACCIÓN)
+     // ---------------------------------------------
+     JPanel panelCentro = new JPanel(new GridLayout(6, 1, 10, 10));
+     panelCentro.setBackground(new Color(240, 248, 255));
+     panelCentro.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+     JLabel lblIngrese = new JLabel("Ingrese un número para calcular o mostrar un mensaje:");
+     lblIngrese.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+
+     txtNumero = new JTextField();
+     txtNumero.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+     txtNumero.setHorizontalAlignment(JTextField.CENTER);
+
+     btnFuncion = new JButton("Calcular (Función)");
+     btnFuncion.setBackground(new Color(60, 179, 113));
+     btnFuncion.setForeground(Color.WHITE);
+     btnFuncion.setFont(new Font("Segoe UI", Font.BOLD, 14));
+     btnFuncion.addActionListener(this);
+
+     btnMetodo = new JButton("Mostrar (Método)");
+     btnMetodo.setBackground(new Color(65, 105, 225));
+     btnMetodo.setForeground(Color.WHITE);
+     btnMetodo.setFont(new Font("Segoe UI", Font.BOLD, 14));
+     btnMetodo.addActionListener(this);
+
+     btnLimpiar = new JButton("Limpiar");
+     btnLimpiar.setBackground(new Color(220, 20, 60));
+     btnLimpiar.setForeground(Color.WHITE);
+     btnLimpiar.setFont(new Font("Segoe UI", Font.BOLD, 14));
+     btnLimpiar.addActionListener(this);
+
+     lblResultado = new JLabel("Resultado: ", JLabel.CENTER);
+     lblResultado.setFont(new Font("Consolas", Font.BOLD, 16));
+     lblResultado.setForeground(new Color(0, 100, 0));
+
+     panelCentro.add(lblIngrese);
+     panelCentro.add(txtNumero);
+     panelCentro.add(btnFuncion);
+     panelCentro.add(btnMetodo);
+     panelCentro.add(btnLimpiar);
+     panelCentro.add(lblResultado);
+
+     add(panelCentro, BorderLayout.WEST);
+
+     // ---------------------------------------------
+     // PANEL DERECHO (EXPLICACIÓN PARA ESTUDIANTES)
+     // ---------------------------------------------
+     txtExplicacion = new JTextArea();
+     txtExplicacion.setEditable(false);
+     txtExplicacion.setBackground(new Color(255, 250, 240)); // Beige claro
+     txtExplicacion.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+     txtExplicacion.setMargin(new Insets(10, 10, 10, 10));
+
+     // Texto explicativo para el estudiante
+     txtExplicacion.setText(
+             "Explicación:\n\n" +
+             "CONCEPTO\t\tEXPLICACIÓN\t\tCASO EN EL CÓDIGO\n" +
+             "---------------------------------------------------------------\n" +
+             "Función\t\tEs un bloque de código que devuelve un valor.\tcalcularCuadrado(numero)\n" +
+             "Método\t\tRealiza una acción, no devuelve nada (void).\tmostrarMensaje()\n\n" +
+             "USO DE LA FUNCIÓN:\n" +
+             " double resultado = calcularCuadrado(numero);\n" +
+             "Guarda el valor devuelto para usarlo después.\n\n" +
+             "USO DEL MÉTODO:\n" +
+             " mostrarMensaje();\n" +
+             "Solo ejecuta una acción, no devuelve valor.\n\n" +
+             " Casos de uso reales:\n" +
+             "• Calcular la suma de dos números → Función (sumar(a,b))\n" +
+             "• Guardar datos en una base de datos → Método (guardarUsuario())\n" +
+             "• Consultar temperatura → Función (obtenerTemperatura())\n" +
+             "• Enviar un correo → Método (enviarCorreo())\n"
+     );
+
+     JScrollPane scroll = new JScrollPane(txtExplicacion); // Permite desplazarse si el texto es largo
+     add(scroll, BorderLayout.CENTER);
+
+     setVisible(true);
+ }
+
+ // ---------------------------------------------
+ //  MANEJO DE EVENTOS
+ // ---------------------------------------------
+ @Override
+ public void actionPerformed(ActionEvent e) {
+     if (e.getSource() == btnFuncion) {
+         try {
+             double numero = Double.parseDouble(txtNumero.getText());
+             double resultado = calcularCuadrado(numero); // 👉 Llama a la función
+             lblResultado.setText("Resultado (función): " + resultado);
+         } catch (NumberFormatException ex) {
+             JOptionPane.showMessageDialog(this, "Por favor, ingrese un número válido.");
+         }
+     } else if (e.getSource() == btnMetodo) {
+         mostrarMensaje(); // 👉 Llama al método
+     } else if (e.getSource() == btnLimpiar) {
+         txtNumero.setText("");
+         lblResultado.setText("Resultado: ");
+     }
+ }
+
+ // ---------------------------------------------
+ //  FUNCIÓN → Devuelve un valor
+ // ---------------------------------------------
+ public double calcularCuadrado(double numero) {
+     return numero * numero;
+ }
+
+ // ---------------------------------------------
+ //  MÉTODO → Realiza una acción
+ // ---------------------------------------------
+ public void mostrarMensaje() {
+     JOptionPane.showMessageDialog(this,
+             "Este es un MÉTODO.\nNo devuelve valores, solo ejecuta una acción.",
+             "Método Ejecutado",
+             JOptionPane.INFORMATION_MESSAGE);
+ }
+
+ // ---------------------------------------------
+ //  MÉTODO PRINCIPAL
+ // ---------------------------------------------
+ public static void main(String[] args) {
+     new FuncionesYMetodosVisualExplicado();
+ }
+}
+
