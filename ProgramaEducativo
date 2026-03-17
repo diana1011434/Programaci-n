@@ -1,0 +1,145 @@
+package ProgramaEducativo;
+import java.util.Scanner;
+
+public class ProgramaEducativo {
+	
+
+	   public static void main(String[] args) {
+
+	        Scanner sc = new Scanner(System.in);
+	        int opcion;
+
+	        // =====================================
+	        // MENÚ PRINCIPAL (CONTROL DEL PROGRAMA)
+	        // =====================================
+	        do {
+
+	            System.out.println("\n===== PROGRAMA DE APRENDIZAJE JAVA =====");
+	            System.out.println("¿Qué desea ejecutar?");
+	            System.out.println("1. Ejemplo de CONDICIONALES");
+	            System.out.println("2. Ejemplo de CICLOS");
+	            System.out.println("3. Salir");
+	            System.out.print("Seleccione una opción: ");
+
+	            opcion = sc.nextInt();
+
+	            // =====================================
+	            // SWITCH PARA CONTROLAR OPCIONES
+	            // =====================================
+	            switch (opcion) {
+
+	                case 1:
+	                    ejecutarCondicionales(sc);
+	                    break;
+
+	                case 2:
+	                    ejecutarCiclos(sc);
+	                    break;
+
+	                case 3:
+	                    System.out.println("Programa finalizado.");
+	                    break;
+
+	                default:
+	                    System.out.println("Opción no válida.");
+	            }
+
+	        } while (opcion != 3); // se repite hasta salir
+
+	        sc.close();
+	    }
+
+	    // =====================================
+	    // MÉTODO CON CONDICIONALES
+	    // =====================================
+	    public static void ejecutarCondicionales(Scanner sc) {
+
+	        System.out.println("\n--- EJEMPLO CONDICIONALES ---");
+
+	        System.out.print("Ingrese su nombre: ");
+	        sc.nextLine(); // limpiar buffer
+	        String nombre = sc.nextLine();
+
+	        System.out.print("Ingrese su edad: ");
+	        int edad = sc.nextInt();
+
+	        // IF SIMPLE
+	        if (edad >= 18) {
+	            System.out.println(nombre + " es mayor de edad.");
+	        }
+
+	        // IF - ELSE
+	        if (edad >= 18) {
+	            System.out.println("Puede votar.");
+	        } else {
+	            System.out.println("No puede votar.");
+	        }
+
+	        // ELSE IF
+	        if (edad < 12) {
+	            System.out.println("Niño");
+	        } else if (edad < 18) {
+	            System.out.println("Adolescente");
+	        } else if (edad < 60) {
+	            System.out.println("Adulto");
+	        } else {
+	            System.out.println("Adulto mayor");
+	        }
+
+	        // SWITCH
+	        System.out.println("\nSeleccione un día (1-3):");
+	        System.out.println("1. Lunes");
+	        System.out.println("2. Martes");
+	        System.out.println("3. Miércoles");
+
+	        int dia = sc.nextInt();
+
+	        switch (dia) {
+	            case 1:
+	                System.out.println("Inicio de semana");
+	                break;
+	            case 2:
+	                System.out.println("Segundo día");
+	                break;
+	            case 3:
+	                System.out.println("Mitad de semana");
+	                break;
+	            default:
+	                System.out.println("Día no válido");
+	        }
+	    }
+
+	    // =====================================
+	    // MÉTODO CON CICLOS
+	    // =====================================
+	    public static void ejecutarCiclos(Scanner sc) {
+
+	        System.out.println("\n--- EJEMPLO CICLOS ---");
+
+	        // FOR
+	        System.out.println("\nCiclo FOR:");
+	        for (int i = 1; i <= 5; i++) {
+	            System.out.println("Número: " + i);
+	        }
+
+	        // WHILE
+	        System.out.println("\nCiclo WHILE:");
+	        int contador = 1;
+
+	        while (contador <= 3) {
+	            System.out.println("Contador: " + contador);
+	            contador++;
+	        }
+
+	        // DO-WHILE
+	        int numero;
+
+	        do {
+	            System.out.print("\nIngrese un número mayor que 10: ");
+	            numero = sc.nextInt();
+	        } while (numero <= 10);
+
+	        System.out.println("Número válido ingresado.");
+	    }
+	}
+
