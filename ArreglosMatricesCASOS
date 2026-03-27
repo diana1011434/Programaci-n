@@ -1,0 +1,353 @@
+| Caso | Concepto Principal  |
+| ---- | ------------------- |
+| 1    | Condicionales       |
+| 2    | Ciclos FOR          |
+| 3    | Arreglos            |
+| 4    | Promedios           |
+| 5    | Matrices            |
+| 6    | Strings             |
+| 7    | Recursividad        |
+| 8    | Recursión + cadenas |
+| 9    | For-each            |
+| 10   | Matrices avanzadas  |
+
+
+CASO 1 — Validar si un estudiante aprueba (Condicionales + Cadenas)
+public class Caso1 {
+    public static void main(String[] args) {
+
+        String nombre = "Ana";
+        double nota = 4.2;
+
+        if (nota >= 3.0) {
+            System.out.println(nombre + " aprobó la materia");
+        } else {
+            System.out.println(nombre + " perdió la materia");
+        }
+    }
+}
+
+
+CASO 2 — Sumar números del 1 al N (Ciclo FOR)
+
+public class Caso2 {
+    public static void main(String[] args) {
+
+        int suma = 0;
+
+        for (int i = 1; i <= 5; i++) {
+            suma = suma + i;
+        }
+
+        System.out.println("La suma es: " + suma);
+    }
+}
+
+
+CASO 3 — Buscar un número (Arreglo Unidimensional)
+
+public class Caso3 {
+    public static void main(String[] args) {
+
+        int[] numeros = {10, 20, 30, 40};
+        int buscar = 30;
+
+        for (int i = 0; i < numeros.length; i++) {
+            if (numeros[i] == buscar) {
+                System.out.println("Número encontrado");
+            }
+        }
+    }
+}
+
+CASO 4 — Promedio de notas (Arreglo + Ciclo)
+
+public class Caso4 {
+    public static void main(String[] args) {
+
+        double[] notas = {3.5, 4.0, 2.8, 5.0};
+        double suma = 0;
+
+        for (int i = 0; i < notas.length; i++) {
+            suma += notas[i];
+        }
+
+        double promedio = suma / notas.length;
+        System.out.println("Promedio: " + promedio);
+    }
+}
+
+
+CASO 5 — Matriz de estudiantes (Matrices)
+
+
+public class Caso5 {
+    public static void main(String[] args) {
+
+        int[][] matriz = {
+                {10,20,30},
+                {40,50,60}
+        };
+
+        for(int i=0;i<matriz.length;i++){
+            for(int j=0;j<matriz[i].length;j++){
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+CASO 6 — Contar vocales (Cadenas + Ciclo)
+
+
+public class Caso6 {
+    public static void main(String[] args) {
+
+        String texto = "programacion";
+        int contador = 0;
+
+        for(int i=0;i<texto.length();i++){
+            char letra = texto.charAt(i);
+
+            if("aeiou".indexOf(letra) != -1){
+                contador++;
+            }
+        }
+
+        System.out.println("Vocales: " + contador);
+    }
+}
+CASO 7 — Factorial Recursivo (Recursividad) 
+
+public class Caso7 {
+
+    static int factorial(int n){
+        if(n==1){
+            return 1;
+        }
+        return n * factorial(n-1);
+    }
+
+    public static void main(String[] args){
+        System.out.println(factorial(5));
+    }
+}
+
+CASO 8 — Invertir cadena (Recursividad + String)
+
+public class Caso8 {
+
+    static String invertir(String texto){
+        if(texto.isEmpty()){
+            return texto;
+        }
+        return invertir(texto.substring(1)) + texto.charAt(0);
+    }
+
+    public static void main(String[] args){
+        System.out.println(invertir("JAVA"));
+    }
+}
+
+CASO 9 — Contar números pares (Arreglo + Condicional)
+
+public class Caso9 {
+    public static void main(String[] args) {
+
+        int[] datos = {2,5,8,7,10};
+        int pares = 0;
+
+        for(int num : datos){
+            if(num % 2 == 0){
+                pares++;
+            }
+        }
+
+        System.out.println("Pares: " + pares);
+    }
+}
+
+CASO 10 — Suma de matriz diagonal (Matrices + Ciclos)
+
+public class Caso10 {
+    public static void main(String[] args) {
+
+        int[][] matriz = {
+                {1,2,3},
+                {4,5,6},
+                {7,8,9}
+        };
+
+        int suma = 0;
+
+        for(int i=0;i<matriz.length;i++){
+            suma += matriz[i][i];
+        }
+
+        System.out.println("Diagonal: " + suma);
+    }
+}
+
+
+Sistema Académico Universitario
+
+Una universidad necesita un sistema en consola que permita:
+
+Registrar estudiantes
+Registrar notas (matriz)
+Calcular promedios
+Buscar estudiante
+Mostrar aprobados/reprobados
+Invertir nombre (recursividad)
+Salir
+
+import java.util.Scanner;
+
+public class SistemaAcademico {
+
+    static Scanner sc = new Scanner(System.in);
+
+    // Arreglo unidimensional (nombres)
+    static String[] estudiantes = new String[5];
+
+    // Matriz (notas)
+    static double[][] notas = new double[5][3];
+
+    static int contador = 0;
+
+    // ================= MENU =================
+    public static void main(String[] args) {
+
+        int opcion;
+
+        do {
+            System.out.println("\n===== SISTEMA ACADEMICO =====");
+            System.out.println("1. Registrar estudiante");
+            System.out.println("2. Registrar notas");
+            System.out.println("3. Calcular promedios");
+            System.out.println("4. Buscar estudiante");
+            System.out.println("5. Mostrar aprobados");
+            System.out.println("6. Invertir nombre (Recursividad)");
+            System.out.println("7. Salir");
+            System.out.print("Opción: ");
+
+            opcion = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcion) {
+                case 1: registrarEstudiante(); break;
+                case 2: registrarNotas(); break;
+                case 3: calcularPromedios(); break;
+                case 4: buscarEstudiante(); break;
+                case 5: mostrarAprobados(); break;
+                case 6: invertirNombre(); break;
+            }
+
+        } while (opcion != 7);
+    }
+
+    // ================= REGISTRAR =================
+    static void registrarEstudiante() {
+
+        if (contador < estudiantes.length) {
+            System.out.print("Nombre estudiante: ");
+            estudiantes[contador] = sc.nextLine();
+            contador++;
+        } else {
+            System.out.println("Cupo lleno");
+        }
+    }
+
+    // ================= MATRIZ =================
+    static void registrarNotas() {
+
+        for (int i = 0; i < contador; i++) {
+            System.out.println("Notas de " + estudiantes[i]);
+
+            for (int j = 0; j < 3; j++) {
+                System.out.print("Nota " + (j + 1) + ": ");
+                notas[i][j] = sc.nextDouble();
+            }
+        }
+    }
+
+    // ================= CICLOS + ARREGLOS =================
+    static void calcularPromedios() {
+
+        for (int i = 0; i < contador; i++) {
+
+            double suma = 0;
+
+            for (int j = 0; j < 3; j++) {
+                suma += notas[i][j];
+            }
+
+            double promedio = suma / 3;
+
+            System.out.println(estudiantes[i] +
+                    " Promedio: " + promedio);
+        }
+    }
+
+    // ================= BUSQUEDA =================
+    static void buscarEstudiante() {
+
+        System.out.print("Nombre a buscar: ");
+        String buscar = sc.nextLine();
+
+        boolean encontrado = false;
+
+        for (int i = 0; i < contador; i++) {
+
+            if (estudiantes[i].equalsIgnoreCase(buscar)) {
+                System.out.println("Estudiante encontrado");
+                encontrado = true;
+            }
+        }
+
+        if (!encontrado)
+            System.out.println("No existe");
+    }
+
+    // ================= CONDICIONALES =================
+    static void mostrarAprobados() {
+
+        for (int i = 0; i < contador; i++) {
+
+            double suma = 0;
+
+            for (int j = 0; j < 3; j++) {
+                suma += notas[i][j];
+            }
+
+            double promedio = suma / 3;
+
+            if (promedio >= 3.0)
+                System.out.println(estudiantes[i] + " APROBÓ");
+            else
+                System.out.println(estudiantes[i] + " REPROBÓ");
+        }
+    }
+
+    // ================= RECURSIVIDAD =================
+    static String invertir(String texto) {
+
+        if (texto.isEmpty())
+            return texto;
+
+        return invertir(texto.substring(1))
+                + texto.charAt(0);
+    }
+
+    static void invertirNombre() {
+
+        System.out.print("Ingrese nombre: ");
+        String nombre = sc.nextLine();
+
+        System.out.println("Invertido: " +
+                invertir(nombre));
+    }
+}
+
+
