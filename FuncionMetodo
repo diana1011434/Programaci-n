@@ -34,7 +34,7 @@ public class FuncionesYMetodosVisualExplicado extends JFrame implements ActionLi
      // ---------------------------------------------
      //  PANEL SUPERIOR (TÍTULO)
      // ---------------------------------------------
-     JLabel lblTitulo = new JLabel("💡 Diferencia entre Función y Método en Java", JLabel.CENTER);
+     JLabel lblTitulo = new JLabel(" Diferencia entre Función y Método en Java", JLabel.CENTER);
      lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 20));
      lblTitulo.setForeground(new Color(25, 25, 112)); // Azul oscuro
      add(lblTitulo, BorderLayout.NORTH);
@@ -127,13 +127,13 @@ public class FuncionesYMetodosVisualExplicado extends JFrame implements ActionLi
      if (e.getSource() == btnFuncion) {
          try {
              double numero = Double.parseDouble(txtNumero.getText());
-             double resultado = calcularCuadrado(numero); // 👉 Llama a la función
+             double resultado = calcularCuadrado(numero); //  Llama a la función
              lblResultado.setText("Resultado (función): " + resultado);
          } catch (NumberFormatException ex) {
              JOptionPane.showMessageDialog(this, "Por favor, ingrese un número válido.");
          }
      } else if (e.getSource() == btnMetodo) {
-         mostrarMensaje(); // 👉 Llama al método
+         mostrarMensaje(); //  Llama al método
      } else if (e.getSource() == btnLimpiar) {
          txtNumero.setText("");
          lblResultado.setText("Resultado: ");
