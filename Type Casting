@@ -1,0 +1,75 @@
+import java.util.Scanner;
+
+public class TypeCastingDocente {
+
+    public static void main(String[] args) {
+
+        Scanner entrada = new Scanner(System.in);
+
+        System.out.println("=================================");
+        System.out.println("   DEMOSTRACION DE TYPE CASTING");
+        System.out.println("=================================\n");
+
+        // --------------------------------------------------
+        // 1. CASTING IMPLICITO (WIDENING)
+        // --------------------------------------------------
+        System.out.println("CASTING IMPLICITO (Automatico)");
+
+        System.out.print("Ingrese un numero entero: ");
+        int numeroEntero = entrada.nextInt();
+
+        double numeroConvertido = numeroEntero; // automático
+
+        System.out.println("Entero original: " + numeroEntero);
+        System.out.println("Convertido a double: " + numeroConvertido);
+
+        System.out.println("\n✔ Java realiza la conversion automaticamente.\n");
+
+
+        // --------------------------------------------------
+        // 2. CASTING EXPLICITO (NARROWING)
+        // --------------------------------------------------
+        System.out.println("CASTING EXPLICITO (Manual)");
+
+        System.out.print("Ingrese un numero decimal: ");
+        double numeroDecimal = entrada.nextDouble();
+
+        int numeroReducido = (int) numeroDecimal; // manual
+
+        System.out.println("Decimal original: " + numeroDecimal);
+        System.out.println("Convertido a int: " + numeroReducido);
+
+        System.out.println(" Observe que se pierde la parte decimal.\n");
+
+
+        // --------------------------------------------------
+        // 3. ERROR COMUN EN ESTUDIANTES
+        // --------------------------------------------------
+        System.out.println("ERROR COMUN: Division entre enteros");
+
+        System.out.print("Ingrese el primer numero entero: ");
+        int a = entrada.nextInt();
+
+        System.out.print("Ingrese el segundo numero entero: ");
+        int b = entrada.nextInt();
+
+        int divisionEntera = a / b;
+        double divisionCorrecta = (double) a / b;
+
+        System.out.println("\nResultado SIN casting: " + divisionEntera);
+        System.out.println("Resultado CON casting: " + divisionCorrecta);
+
+        System.out.println("\n El casting permite obtener resultados reales.");
+
+        // --------------------------------------------------
+        // 4. REFLEXION PEDAGOGICA AUTOMATICA
+        // --------------------------------------------------
+        System.out.println("\n=================================");
+        System.out.println("REFLEXION:");
+        System.out.println("Pequeño -> Grande : Automatico");
+        System.out.println("Grande -> Pequeño : Manual");
+        System.out.println("=================================");
+
+        entrada.close();
+    }
+}
