@@ -1,0 +1,100 @@
+package CineColombia;
+import java.util.Scanner;
+
+public class CineColombia {
+
+    static Scanner sc = new Scanner(System.in);
+
+    // Matriz sala (5 filas x 6 columnas)
+    static int[][] sala = new int[5][6];
+
+    // Mostrar gráfica de la sala
+    public static void mostrarSala() {
+        System.out.println("\n===== SALA CINE COLOMBIA =====");
+
+        for (int i = 0; i < sala.length; i++) {
+            for (int j = 0; j < sala[i].length; j++) {
+
+                if (sala[i][j] == 0)
+                    System.out.print("[🟢] "); // disponible
+                else
+                    System.out.print("[🔴] "); // ocupado
+            }
+            System.out.println();
+        }
+    }
+
+    // Reservar silla
+    public static void reservarSilla() {
+        System.out.print("Ingrese fila (0-4): ");
+        int fila = sc.nextInt();
+
+        System.out.print("Ingrese columna (0-5): ");
+        int columna = sc.nextInt();
+
+        if (fila >= 0 && fila < 5 && columna >= 0 && columna < 6) {
+
+            if (sala[fila][columna] == 0) {
+                sala[fila][columna] = 1;
+                System.out.println(" Reserva exitosa.");
+            } else {
+                System.out.println(" Silla ya ocupada.");
+            }
+
+        } else {
+            System.out.println(" Posición inválida.");
+        }
+    }
+
+    // Contar sillas disponibles
+    public static void disponibles() {
+        int contador = 0;
+
+        for (int i = 0; i < sala.length; i++) {
+            for (int j = 0; j < sala[i].length; j++) {
+                if (sala[i][j] == 0)
+                    contador++;
+            }
+        }
+
+        System.out.println("Sillas disponibles: " + contador);
+    }
+
+    public static void main(String[] args) {
+
+        int opcion;
+
+        do {
+            System.out.println("\n===== CINE COLOMBIA =====");
+            System.out.println("1. Ver sala");
+            System.out.println("2. Reservar silla");
+            System.out.println("3. Ver disponibles");
+            System.out.println("4. Salir");
+            System.out.print("Seleccione: ");
+
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    mostrarSala();
+                    break;
+
+                case 2:
+                    reservarSilla();
+                    break;
+
+                case 3:
+                    disponibles();
+                    break;
+
+                case 4:
+                    System.out.println("Gracias por usar Cine Colombia ");
+                    break;
+
+                default:
+                    System.out.println("Opción inválida");
+            }
+
+        } while (opcion != 4);
+    }
+}
