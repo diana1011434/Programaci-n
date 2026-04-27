@@ -1,0 +1,137 @@
+Método: realiza una acción (puede no retornar valor → void)
+Función: retorna un valor (return)
+
+
+1. Sistema de registro de estudiantes
+
+Contexto:
+Una institución necesita registrar estudiantes y calcular su promedio.
+
+Método:
+Registrar datos del estudiante (no retorna nada).
+Función:
+Calcular el promedio de notas (retorna un valor).
+
+Explicación:
+El método ejecuta una acción (guardar), la función devuelve un resultado (promedio).
+
+2. Cajero automático
+
+Contexto:
+Un banco simula operaciones básicas.
+
+Método:
+Mostrar menú de opciones.
+Función:
+Calcular saldo después de un retiro.
+
+Método = interacción
+Función = cálculo
+
+ 3. Sistema de login
+
+Contexto:
+Una aplicación valida acceso de usuarios.
+
+Método:
+Solicitar usuario y contraseña.
+Función:
+Validar credenciales (retorna true o false).
+
+Las funciones suelen devolver booleanos en validaciones.
+
+4. Tienda virtual
+
+Contexto:
+Una tienda calcula el total de una compra.
+Método:
+Mostrar productos.
+Función:
+Calcular total con impuestos.
+
+Diferencia:
+Método informa, función procesa datos.
+
+5. Juego educativo
+Contexto:
+Un juego hace preguntas al usuario.
+
+Método:
+Mostrar pregunta.
+Función:
+Evaluar respuesta correcta.
+
+Función retorna resultado (puntaje o true/false).
+
+6. Sistema de notas académicas
+
+Contexto:
+Un docente gestiona calificaciones.
+
+Método:
+Imprimir reporte del estudiante.
+Función:
+Calcular promedio final.
+
+Relación:
+El método puede usar la función internamente.
+
+7. Conversor de unidades
+
+Contexto:
+Una app convierte temperaturas.
+
+Método:
+Mostrar opciones de conversión.
+Función:
+Convertir de Celsius a Fahrenheit.
+
+Funciones transforman datos y retornan resultados.
+
+8. Aplicación de salud
+
+Contexto:
+Una app calcula el índice de masa corporal (IMC).
+Método:
+Solicitar peso y altura.
+Función:
+Calcular IMC.
+
+Ejemplo clásico de función matemática.
+
+9. Sistema de envíos
+
+Contexto:
+Una empresa calcula costos de envío.
+
+Método:
+Mostrar información del envío.
+Función:
+Calcular costo según peso y distancia.
+
+Diferencia clara:
+Método informa, función calcula.
+
+10. Generador de reportes
+
+Contexto:
+Un sistema genera reportes empresariales.
+
+Método:
+Generar e imprimir reporte.
+Función:
+Calcular estadísticas (promedio, máximo, mínimo).
+
+
+|  Aspecto              |   Método                               |   Función                                                  |
+| -------------------- | --------------------------------------- | ----------------------------------------------------------- |
+|    Definición        | Bloque de código que realiza una acción | Bloque de código que realiza una acción y devuelve un valor |
+|    Retorno           | Puede no retornar nada (`void`)         | Siempre retorna un valor (`return`)                         |
+|    Parámetros        | Puede recibir o no parámetros           | Generalmente recibe parámetros                              |
+|    Propósito         | Ejecutar tareas o acciones              | Procesar datos y devolver resultados                        |
+|    Uso en Java       | Todos son métodos dentro de una clase   | Es un tipo de método que retorna valor                      |
+|    Enfoque didáctico | “Hace algo”                             | “Hace algo y devuelve algo”                                 |
+|    Ejemplo típico    | Mostrar información                     | Calcular valores                                            |
+|    Relación          | Puede llamar funciones                  | Puede ser usada dentro de métodos                           |
+|    Legibilidad       | Mejora organización del flujo           | Mejora lógica y reutilización                               |
+|    Ejemplo en Java   | `void saludar()`                        | `int sumar(int a, int b)`                                   |
