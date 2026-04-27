@@ -12,7 +12,7 @@ Registrar datos del estudiante (no retorna nada).
 Función:
 Calcular el promedio de notas (retorna un valor).
 
-Explicación:
+
 El método ejecuta una acción (guardar), la función devuelve un resultado (promedio).
 
 2. Cajero automático
