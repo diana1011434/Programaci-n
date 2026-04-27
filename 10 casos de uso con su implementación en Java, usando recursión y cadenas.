@@ -1,0 +1,121 @@
+1. Sistema de validación de contraseñas seguras
+
+Contexto:
+Una empresa necesita validar contraseñas que cumplan reglas estrictas (mínimo 8 caracteres, mayúsculas, números y símbolos).
+
+Reto:
+Implementar una función recursiva que recorra la cadena carácter por carácter y valide cada condición.
+
+Recurrencia:
+f(n) = validación del carácter actual + f(n-1)
+
+2. Inversión de cadenas para cifrado básico
+
+Contexto:
+Un sistema de mensajería necesita invertir mensajes como parte de un cifrado simple.
+
+Reto:
+Construir una función recursiva que invierta una cadena sin usar estructuras iterativas.
+
+Recurrencia:
+f(cadena) = último carácter + f(resto de la cadena)
+
+3. Verificación de palíndromos en nombres de productos
+
+Contexto:
+Una tienda quiere identificar nombres curiosos (palíndromos) para campañas de marketing.
+
+Reto:
+Verificar recursivamente si una cadena es igual al invertirse.
+
+Recurrencia:
+f(cadena) = comparar extremos + f(subcadena interna)
+
+4. Conteo de vocales en textos educativos
+
+Contexto:
+Una plataforma educativa analiza textos ingresados por estudiantes.
+
+Reto:
+Contar recursivamente cuántas vocales hay en una cadena.
+
+Recurrencia:
+f(n) = (1 si es vocal) + f(n-1)
+
+
+5. Generador de combinaciones de palabras (anagramas)
+
+Contexto:
+Un juego educativo genera todas las combinaciones posibles de una palabra.
+
+Reto:
+Usar recursión para generar permutaciones de una cadena.
+
+Recurrencia:
+f(cadena) = insertar primer carácter en todas las posiciones de f(subcadena)
+
+
+6. Evaluador de expresiones matemáticas en texto
+
+Contexto:
+Un sistema permite ingresar operaciones como texto: "2+3+4".
+
+Reto:
+Evaluar la expresión usando recursión (dividir por operadores).
+
+Recurrencia:
+f(expresión) = f(parte izquierda) + f(parte derecha)
+
+
+7. Limpieza de textos (eliminación de caracteres repetidos)
+
+Contexto:
+Una app de procesamiento de texto necesita eliminar duplicados consecutivos.
+
+Reto:
+Crear una función recursiva que elimine caracteres repetidos.
+
+Ejemplo: "aaabbc" → "abc"
+
+Recurrencia:
+f(cadena) = carácter actual + f(resto si es distinto)
+
+8. Simulación de búsqueda en diccionario
+
+Contexto:
+Un diccionario digital busca palabras en orden alfabético.
+
+Reto:
+Implementar búsqueda binaria recursiva sobre un arreglo de cadenas.
+
+Recurrencia:
+f(inicio, fin) = comparar medio → f(subarreglo)
+
+9. Comparación de similitud entre dos textos
+
+Contexto:
+Un sistema académico detecta similitud entre respuestas de estudiantes.
+
+Reto:
+Comparar dos cadenas recursivamente carácter por carácter.
+
+Recurrencia:
+f(cad1, cad2) = coincidencia actual + f(resto)
+
+10. Generador de patrones de texto tipo pirámide
+
+Contexto:
+Una aplicación genera patrones visuales con texto para ejercicios didácticos.
+
+Reto:
+Construir patrones usando recursión.
+
+Ejemplo:
+
+*
+**
+***
+****
+
+Recurrencia:
+f(n) = imprimir nivel + f(n-1)
